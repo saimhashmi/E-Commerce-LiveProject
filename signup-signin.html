@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp / SignIn</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="https://placehold.co/150x50?text=ShopLogo" alt="Shop Logo">
+                </a>
+            </div>
+            <ul class="navlist">
+                <a href="index.html"><li>Home</li></a>
+                <a href="product.html"><li>Shop</li></a>
+                <a href="#cart"><li>Cart</li></a>
+                <a href="index.html#footer"><li>Contact</li></a>
+                <a href="signup-signin.html"><li>Login</li></a>
+            </ul>
+        </nav>
+    </header>
+    <main class="form-container">
+        <form id="form" action="#">
+            <!-- Common Inputs -->
+            <input type="radio" id="signin" name="form-input" checked>
+            <label for="signin" class="btn">Sign In</label>
+            <input type="radio" id="signup" name="form-input">
+            <label for="signup" class="btn">Sign Up</label>
+
+            <!-- Sign In Section -->
+            <div class="sub-form signin-form">
+                <h1>Sign In</h1>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button class="btn">Sign In</button>
+                <label for="signup" class="sub-form-last-label">
+                    Don't have an account? 
+                    <span class="btn">
+                    Sign up Here
+                    </span>
+                </label>
+            </div>
+            <!-- Sign Up Section -->
+            <div class="sub-form signup-form">
+                <h1>Sign Up</h1>
+                <input type="text" id="name" placeholder="Full Name">
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                <button class="btn">Sign Up</button>
+                <label for="signin" class="sub-form-last-label">
+                    Already have an account? 
+                    <span class="btn">
+                    Sign in Here
+                    </span>
+                </label>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

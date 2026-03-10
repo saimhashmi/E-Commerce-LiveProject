@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="https://placehold.co/150x50?text=ShopLogo" alt="Shop Logo">
+                </a>
+            </div>
+            <ul class="navlist">
+                <a href="index.html"><li>Home</li></a>
+                <a href="product.html"><li>Shop</li></a>
+                <a href="#cart"><li>Cart</li></a>
+                <a href="index.html#footer"><li>Contact</li></a>
+                <a href="signup-signin.html"><li>Login</li></a>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="container">
+            <h1 class="my-3">E-Commerce Product Page</h1>
+        </section>
+        <section class="container d-flex gap-3 align-items-center mb-2">
+            <div class="w-75">
+                <input type="text" id="search" class="form-control" placeholder="Search for Products...">
+            </div>
+            <div class="w-25">
+                <select id="price-range" class="form-select" aria-label="Select Price Range">
+                    <option value="">Select Price Range</option>
+                    <option value="0-50">Under $50</option>
+                    <option value="51-100">$51 - $100</option>
+                    <option value="101-200">$101 - $200</option>
+                    <option value="201-300">$201 - $300</option>
+                    <option value="301-500">$301 - $500</option>
+                    <option value="500-1000">$500 - $1000</option>
+                </select>
+            </div>
+        </section>
+        <section id="product-list" class="container row">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="https://placehold.co/400x300?text=Premium+Leather+Bag" class="card-img-top" alt="Premium Leather Bag">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Premium Leather Bag</h5>
+                        <p class="card-text">Handcrafted leather bag with multiple compartments and adjustable strap. Ideal for daily use or travel.</p>
+                        <p class="card-text fw-bold">$129.99</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="https://placehold.co/400x300?text=Premium+Leather+Bag" class="card-img-top" alt="Premium Leather Bag">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Premium Leather Bag</h5>
+                        <p class="card-text">Handcrafted leather bag with multiple compartments and adjustable strap. Ideal for daily use or travel.</p>
+                        <p class="card-text fw-bold">$129.99</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="https://placehold.co/400x300?text=Premium+Leather+Bag" class="card-img-top" alt="Premium Leather Bag">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Premium Leather Bag</h5>
+                        <p class="card-text">Handcrafted leather bag with multiple compartments and adjustable strap. Ideal for daily use or travel.</p>
+                        <p class="card-text fw-bold">$129.99</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="https://placehold.co/400x300?text=Premium+Leather+Bag" class="card-img-top" alt="Premium Leather Bag">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Premium Leather Bag</h5>
+                        <p class="card-text">Handcrafted leather bag with multiple compartments and adjustable strap. Ideal for daily use or travel.</p>
+                        <p class="card-text fw-bold">$129.99</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="https://placehold.co/400x300?text=Premium+Leather+Bag" class="card-img-top" alt="Premium Leather Bag">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Premium Leather Bag</h5>
+                        <p class="card-text">Handcrafted leather bag with multiple compartments and adjustable strap. Ideal for daily use or travel.</p>
+                        <p class="card-text fw-bold">$129.99</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="https://placehold.co/400x300?text=Premium+Leather+Bag" class="card-img-top" alt="Premium Leather Bag">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Premium Leather Bag</h5>
+                        <p class="card-text">Handcrafted leather bag with multiple compartments and adjustable strap. Ideal for daily use or travel.</p>
+                        <p class="card-text fw-bold">$129.99</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="https://placehold.co/400x300?text=Premium+Leather+Bag" class="card-img-top" alt="Premium Leather Bag">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Premium Leather Bag</h5>
+                        <p class="card-text">Handcrafted leather bag with multiple compartments and adjustable strap. Ideal for daily use or travel.</p>
+                        <p class="card-text fw-bold">$129.99</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="https://placehold.co/400x300?text=Premium+Leather+Bag" class="card-img-top" alt="Premium Leather Bag">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Premium Leather Bag</h5>
+                        <p class="card-text">Handcrafted leather bag with multiple compartments and adjustable strap. Ideal for daily use or travel.</p>
+                        <p class="card-text fw-bold">$129.99</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="https://placehold.co/400x300?text=Premium+Leather+Bag" class="card-img-top" alt="Premium Leather Bag">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">Premium Leather Bag</h5>
+                        <p class="card-text">Handcrafted leather bag with multiple compartments and adjustable strap. Ideal for daily use or travel.</p>
+                        <p class="card-text fw-bold">$129.99</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript incules -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

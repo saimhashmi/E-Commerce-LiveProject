@@ -1,0 +1,406 @@
+/* Variables */
+:root {
+    --title-size: 2em;
+    --color-darkgray: #333;
+    --color-orange: #ff6347;
+}
+
+/* Animations */
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* CSS Minimal Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    width: 100%;
+}
+
+/* Common Styling */
+header {
+    width: 100%;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+h1 {
+    text-align: center;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    margin-top: 4em;
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    padding: 1em 5em;
+}
+
+.section .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 1.5em;
+}
+
+.scale {
+    transition: transform 0.3s;
+}
+
+.scale:hover,
+.scale:focus {
+    transform: scale(1.05);
+}
+
+/* Selective Styling Home Page*/
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem !important;
+    background-color: var(--color-darkgray);
+}
+
+.logo-container a img {
+    transition: transform 0.3s;
+}
+
+.logo-container a img:hover,
+.logo-container a img:focus {
+    transform: scale(1.1);
+}
+
+.navlist {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.navlist li {
+    transition: all 0.3s;
+    padding: 1em;
+}
+
+.navlist li:hover,
+.navlist li:focus {
+    background-color: var(--color-orange);
+}
+
+.navlist li:active {
+    transform: scale(0.9);
+}
+
+.navlist a li {
+    color: white;
+    text-decoration: none !important;
+}
+
+.hero {
+    width: 100%;
+    background-color: var(--color-orange);
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 4em 5em;
+}
+
+.container h2 {
+    font-size: var(--title-size);
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.hero h1 {
+    margin-bottom: 1em;
+    font-size: 2.5em;
+}
+
+.hero p {
+    margin-bottom: 2em;
+    font-size: 1.2em;
+}
+
+.btn {
+    padding: 1em 2em;
+    color: white;
+    background-color: var(--color-darkgray);
+    border: none;
+    transition: all 0.3s;
+}
+
+.btn:hover,
+.btn:focus {
+    transform: translateY(-5px);
+    background-color: var(--color-orange);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#offer-text {
+    font-size: .7em;
+    margin: 0;
+    padding: 0.3em 0.5em;
+    position: absolute;
+    bottom: 1.5em;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    animation: 1.5s ease-out fade infinite;
+}
+
+.categories {
+    width: 100%;
+    text-align: center;
+}
+
+.category-card {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 1.5em 0.5em;
+}
+
+.category-card a {
+    color: black;
+    font-weight: 600;
+}
+
+.category-card img {
+    width: 90%;
+    border-radius: 5px;
+    margin-bottom: 0.5em;
+}
+
+.featured-products {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.featured-product {
+    width: 100%;
+    max-width: 550px;
+    height: 450px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 1.5em 0.5em;
+}
+
+.comparison-table {
+    width: 100%;
+    text-align: center;
+    border: 2px solid var(--color-orange);
+    border-collapse: collapse;
+}
+
+.comparison-table th {
+    background-color: var(--color-orange);
+    color: white;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #dddddd;
+    padding: 1rem;
+    transition: all 0.3s;
+}
+
+.testimonials {
+    background-color: var(--color-darkgray);
+    color: white;
+    padding: 5rem 0 3rem;
+}
+
+.testimonial-card {
+    padding: 1.5rem;
+    background-color: #3f3f3f;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment {
+    font-style: italic;
+    margin-bottom: 2em;
+}
+
+.commentor {
+    text-align: left;
+    margin-top: 1em;
+    color: var(--color-orange);
+}
+
+.footer {
+    margin-top: 0;
+    text-align: center;
+}
+
+/* Selective Styling SignIn/SignUp Page */
+.form-container {
+    width: 50%;
+    min-width: 550px;
+    max-width: 650px;
+    margin: 3em auto;
+}
+
+#form {
+    width: 80%;
+    margin: auto;
+    padding: 4em 0;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#signin,
+#signup {
+    margin-right: 1em;
+}
+
+#signup {
+    margin-left: 1.5em;
+}
+
+.sub-form {
+    display: none;
+    width: 100%;
+    margin-top: 3em;
+}
+
+.sub-form h1 {
+    margin-bottom: 1em;
+}
+
+.sub-form input {
+    padding: 1em;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.sub-form input,
+.sub-form button {
+    display: block;
+    margin: 1em auto;
+    width: 80%;
+}
+
+.sub-form-last-label {
+    display: block;
+    margin-top: 4em;
+}
+
+#signin:checked ~ .signin-form,
+#signup:checked ~ .signup-form {
+    display: block;
+}
+
+/* Product Page Styling */
+
+
+/* Responsive Styling */
+@media screen and (max-width: 1200px) {
+    .featured-products {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero {
+        padding: 4em 1em;
+    }
+
+    .container {
+        padding: 1em;
+    }
+
+    .featured-products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navlist li {
+        padding: 0.5em;
+    }
+
+    .featured-products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comparison-table th, .comparison-table td {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .category-card {
+        width: 75%;
+    }
+
+    .featured-products {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .featured-product {
+        width: 75%;
+    }
+
+    .comparison-table th, .comparison-table td {
+        padding: 0.5rem 0;
+    }
+}
