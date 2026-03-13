@@ -1,7 +1,7 @@
 const productList = document.querySelector("#product-list");
 
 function addToCart(value) {
-    alert("Items added to cart!");
+    alert(`${value.name} added to cart!`);
     console.log(value);
     console.log("button clicked!");
 }
