@@ -1,8 +1,24 @@
 const productList = document.querySelector("#product-list");
 
-function addToCart(value) {
-    alert(`${JSON.parse(value).name} added to cart!`);
-    console.log(value);
+function addToCart(value, quantity) {
+    const existingCart = localStorage.getItem("cart");
+    let cart = existingCart ? JSON.parse(existingCart) : [];
+
+    const existingProduct = cart.find((cartProduct) => cartProduct.name === value.name);
+
+    if(existingProduct) {
+        existingProduct.quantity += quantity;
+        console.log(`Updated quantity for ${value.name}`);
+    } else {
+        value.quantity = quantity;
+        cart.push(value);
+        console.log(`Added ${value.name} to cart`);
+    }
+
+    alert(`${quantity} ${value.name} added to cart!`);
+    
+    console.log(JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
     console.log("button clicked!");
 }
 
@@ -10,79 +26,48 @@ fetch('./assets/products.json').then((data) => {
     return data.json();
 })
 .then((products) => {
-    products.map((product) => {
-        // console.log(product);
-        const cardDiv = document.createElement("div");
-        cardDiv.classList.add("col-lg-3", "col-md-4", "col-sm-6", "mb-4");
-
-        cardDiv.innerHTML += `
-            <div class="card h-100">
-                <img src="${product.image}" class="card-img-top" alt="${product.name}">
-                <div class="card-body text-center">
-                    <h5 class="card-title fw-bold">${product.name}</h5>
-                    <p class="card-text">${product.description}</p>
-                    <p class="card-text fw-bold">$${product.price}</p>
-                </div>
-                <div id="product-card-footer" class="d-flex justify-content-center align-items-center my-3">
-                    <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
-                    <a href="#" class="add-to-cart btn btn-primary" data-key='${JSON.stringify(product)}'>Add to Cart</a>
+    let htmlContent = "";
+    products.forEach((product) => {
+        // productList.innerHTML += `
+        // productList.insertAdjacentHTML('beforeend', `
+        htmlContent += `
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">${product.name}</h5>
+                        <p class="card-text">${product.description}</p>
+                        <p class="card-text fw-bold">$${product.price}</p>
+                    </div>
+                    <div id="product-card-footer" class="d-flex justify-content-center align-items-center my-3">
+                        <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                        <a href="#" class="add-to-cart btn btn-primary" data-product='${JSON.stringify(product)}'>Add to Cart</a>
+                    </div>
                 </div>
             </div>
         `;
+    });
 
-        productList.appendChild(cardDiv);
+    productList.innerHTML = htmlContent;
+
+    const addToCartBtns = document.querySelectorAll(".add-to-cart");
+
+    addToCartBtns.forEach(element => {
+        element.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            const product = JSON.parse(event.target.getAttribute("data-product"));
+            const parentElement = element.parentNode;
+            const quantityInputElement = parentElement.querySelector(".quantity-input");
+
+            addToCart(product, parseInt(quantityInputElement.value));
+        });
     });
 })
 .catch((err) => {
     console.log(`Something went wrong!\n${err}`);
-})
-.finally(() => {
-    const addToCartBtns = document.querySelectorAll(".add-to-cart");
-    addToCartBtns.forEach(element => {
-        element.addEventListener("click", () => {
-            addToCart(element.getAttribute("data-key"));
-        });
-    });
 });
 
 // fetch('https://fakestoreapi.com/products/').then((data) => {
 //     console.log(data);
-// });
-
-// products.map((product) => {
-//     productList.innerHTML += `
-//         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-//                 <div class="card h-100">
-//                     <img src="${product.image}" class="card-img-top" alt="${product.name}">
-//                     <div class="card-body text-center">
-//                         <h5 class="card-title fw-bold">${product.name}</h5>
-//                         <p class="card-text">${product.description}</p>
-//                         <p class="card-text fw-bold">$${product.price}</p>
-//                     </div>
-//                     <div id="product-card-footer" class="d-flex justify-content-center align-items-center my-3">
-//                         <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
-//                         <a href="#" class="btn btn-primary">Add to Cart</a>
-//                     </div>
-//                 </div>
-//             </div>
-//     `
-    // const cardInnerDiv = document.createElement("div");
-    // cardInnerDiv.classList.add("card", "h-100");
-
-    // const cardImage = document.createElement("img");
-    // cardImage.classList.add("card-img-top");
-    // cardImage.setAttribute("src", product.image);
-    // cardImage.setAttribute("alt", product.name);
-
-    // const cardBodyDiv = document.createElement("div");
-    // cardBodyDiv.classList.add("card-body", "text-center");
-                    
-    // const cardTitle = document.createElement("h5");
-    // cardTitle.classList.add("card-title", "fw-bold");
-
-    // const cardDescription = document.createElement("p");
-    // cardDescription.classList.add("card-text");
-
-    // const cardPrice = document.createElement("p");
-    // cardPrice.classList.add("card-text", "fw-bold");
 // });
