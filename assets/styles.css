@@ -217,14 +217,33 @@ h1 {
 }
 
 .featured-product {
-    width: 100%;
-    max-width: 550px;
-    height: 450px;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 550px;
+    height: 400px;
     padding: 1.5em 0.5em;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.featured-product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: fill;
+}
+
+.featured-image-text {
+    margin: 1em 0;
+    font-weight: 500;
+    font-size: 0.8em;
+}
+
+.featured-product-price {
+    font-size: 1.1em;
+    font-weight: 400;
 }
 
 .comparison-table {
