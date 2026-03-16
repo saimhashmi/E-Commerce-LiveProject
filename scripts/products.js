@@ -67,7 +67,3 @@ fetch('./assets/products.json').then((data) => {
 .catch((err) => {
     console.log(`Something went wrong!\n${err}`);
 });
-
-// fetch('https://fakestoreapi.com/products/').then((data) => {
-//     console.log(data);
-// });

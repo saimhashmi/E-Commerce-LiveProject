@@ -166,7 +166,7 @@ h1 {
     color: white;
     background-color: var(--color-darkgray);
     border: none;
-    transition: all 0.3s;
+    transition: all 0.3s !important;
 }
 
 .btn:hover,
@@ -339,6 +339,36 @@ h1 {
 
 /* Product Page Styling */
 
+/* Cart Page Styling */
+.main-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 3em auto;
+    padding: 2em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.cart-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    gap: 2em;
+}
+
+.checkout {
+    width: 100%;
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.checkout-price {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
 
 /* Responsive Styling */
 @media screen and (max-width: 1200px) {
