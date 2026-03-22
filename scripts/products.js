@@ -1,4 +1,34 @@
 const productList = document.querySelector("#product-list");
+const searchInput = document.querySelector("#search");
+const priceRange = document.querySelector("#price-range");
+let productsList = [];
+
+function renderProductList(products) {
+    let htmlContent = "";
+    productList.innerHTML = "";
+    products.forEach((product) => {
+        // productList.innerHTML += `
+        // productList.insertAdjacentHTML('beforeend', `
+        htmlContent += `
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">${product.name}</h5>
+                        <p class="card-text">${product.description}</p>
+                        <p class="card-text fw-bold">$${product.price}</p>
+                    </div>
+                    <div id="product-card-footer" class="d-flex justify-content-center align-items-center my-3">
+                        <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
+                        <a href="#" class="add-to-cart btn btn-primary" data-product='${JSON.stringify(product)}'>Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    productList.innerHTML = htmlContent;
+}
 
 function addToCart(value, quantity) {
     const existingCart = localStorage.getItem("cart");
@@ -22,33 +52,37 @@ function addToCart(value, quantity) {
     console.log("button clicked!");
 }
 
+function applyFilters() {
+    const query = searchInput.value.trim()?.toLowerCase();
+    console.log(query);
+    const price = priceRange.value?.trim();
+    let minPrice = 0;
+    let maxPrice = Infinity;
+    if(price) {
+        [minPrice, maxPrice] = price.split("-").map(value => parseInt(value));
+        console.log(minPrice, maxPrice);
+    }
+
+    const filteredProducts = productsList.filter((product) => {
+        return (
+            product.name.toLowerCase().includes(query) 
+            ||
+            product.description.toLowerCase().includes(query)
+        ) && (
+            product.price >= minPrice && product.price <= maxPrice
+        );
+    });
+    console.log(filteredProducts);
+    renderProductList(filteredProducts);
+}
+
 fetch('./assets/products.json').then((data) => {
     return data.json();
 })
 .then((products) => {
-    let htmlContent = "";
-    products.forEach((product) => {
-        // productList.innerHTML += `
-        // productList.insertAdjacentHTML('beforeend', `
-        htmlContent += `
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
-                    <img src="${product.image}" class="card-img-top" alt="${product.name}">
-                    <div class="card-body text-center">
-                        <h5 class="card-title fw-bold">${product.name}</h5>
-                        <p class="card-text">${product.description}</p>
-                        <p class="card-text fw-bold">$${product.price}</p>
-                    </div>
-                    <div id="product-card-footer" class="d-flex justify-content-center align-items-center my-3">
-                        <input type="number" class="quantity-input w-25 me-3" value="1" min="1">
-                        <a href="#" class="add-to-cart btn btn-primary" data-product='${JSON.stringify(product)}'>Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
-
-    productList.innerHTML = htmlContent;
+    productsList = JSON.parse(JSON.stringify(products));
+    
+    renderProductList(products);
 
     const addToCartBtns = document.querySelectorAll(".add-to-cart");
 
@@ -67,3 +101,7 @@ fetch('./assets/products.json').then((data) => {
 .catch((err) => {
     console.log(`Something went wrong!\n${err}`);
 });
+
+// Using Debouncing for Search Functionality to reduce load
+searchInput.addEventListener("keyup", _.debounce(applyFilters, 500));
+priceRange.addEventListener("change", applyFilters);
