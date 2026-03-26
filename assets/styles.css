@@ -35,7 +35,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Nunito", sans-serif;
+    font-family: "Arial", sans-serif;
 }
 
 body {
@@ -358,6 +358,33 @@ h1 {
 }
 
 /* Product Page Styling */
+#product-list div.products {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title-custom {
+    font-size: 1.1rem;
+}
+
+.card-text-custom {
+    font-size: 0.95rem;
+}
+
+#card-discount {
+    border-radius: 5px;
+    padding: 0 0.2rem;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-color: rgb(224, 0, 0);
+}
 
 /* Cart Page Styling */
 .main-container {

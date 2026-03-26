@@ -8,13 +8,17 @@ function renderCart() {
     cartSection.innerHTML = "";
 
     cart.forEach((cartProduct) => {
+        const price = cartProduct.discount ? (cartProduct.price - cartProduct.price*cartProduct.discount/100) : cartProduct.price;
+
         cartSection.insertAdjacentHTML('beforeend', `
             <div class="col-lg-3 col-md-4 col-sm-6 my-2">
                 <div class="card h-100">
                     <img src="${cartProduct.image}" alt="${cartProduct.name}" class="card-img-top" >
                     <div class="card-body card-body text-center">
                         <p class="card-title fw-bold">${cartProduct.name}</p>
-                        <p class="card-text fw-bold">$${cartProduct.price}</p>
+                        <p class="card-text fw-bold">
+                            $${price.toFixed(2)}
+                        </p>
                     </div>
                     <div class="d-flex justify-content-between align-items-center m-3">
                         <input type="number" class="cart-quantity-input w-25 me-3" value="${cartProduct.quantity}" min="1" data-product='${JSON.stringify(cartProduct)}'>
@@ -24,7 +28,7 @@ function renderCart() {
             </div>
         `);
 
-        totalPrice += cartProduct.price * cartProduct.quantity;
+        totalPrice += price * cartProduct.quantity;
     });
 
     totalPriceElement.textContent = totalPrice.toFixed(2);
